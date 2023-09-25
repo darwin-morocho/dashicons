@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        enabled: true
+        generate_for:
+          include:
+            - lib/domain/models/**
+      json_serializable:
+        enabled: true
+        generate_for:
+          include:
+            - lib/domain/models/**
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - "type=lint"

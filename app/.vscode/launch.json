@@ -1,0 +1,34 @@
+{
+  "configurations": [
+    {
+      "name": "Dev Debug",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "args": ["--dart-define-from-file=env.json"],
+      "program": "lib/main.dart"
+    },
+    {
+      "name": "Dev Release",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "args": ["--release", "--dart-define-from-file=env.json"],
+      "program": "lib/main.dart"
+    },
+    {
+      "name": "Dev Debug Web",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "args": [
+        "-d",
+        "chrome",
+        "--web-renderer",
+        "html",
+        "--dart-define-from-file=env.json"
+      ],
+      "program": "lib/main.dart"
+    }
+  ]
+}

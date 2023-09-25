@@ -1,0 +1,8 @@
+PORT=9000
+
+CRYPTO_JS_SECRET=
+
+SMTP_HOST=smtphost
+SMTP_PORT=587
+SMTP_USER=no-reply@meedu.app
+SMTP_PASSWORD=password

@@ -1,0 +1,12 @@
+{
+  "apiKeys": {
+    "title": "Mis API Keys",
+    "generate": "Generar una nueva API Key",
+    "note": "Recuerda almacenar en un lugar seguro tus API Keys y no los compartas con nadie.",
+    "delete": {
+      "label": "¿Eliminar API Key?",
+      "delete": "Eliminar",
+      "cancel": "Cancelar"
+    }
+  }
+}

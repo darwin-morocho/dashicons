@@ -1,0 +1,18 @@
+{
+  "title": "Registro",
+  "fullName": "Nombre y Apellido o el nombre tu empresa",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "invalidFields": {
+    "password": {
+      "blankSpaces": "La contraseña no debe contener espacios en blanco",
+      "length": "La contraseña de tener al menos 6 caracteres"
+    },
+    "email": "Correo electrónico inválido",
+    "fullName": "Nombre inválido"
+  },
+  "signUp": "CREAR CUENTA",
+  "failures": {
+    "duplicated": "Ya existe una cuenta registrada con el correo ingresado"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "createMyFirstIconsPackage": "Create my first icon's package",
+  "newPackage": {
+    "title": "New Package",
+    "name": {
+      "label": "Name",
+      "info": "The named for your Icon's package"
+    },
+    "fontFamily": {
+      "label": "Font family",
+      "info": "Example: CustomIcons\nThe font family for your font file and your dart class"
+    },
+    "fontPackage": {
+      "label": "Font package (optional)",
+      "info": "Only for flutter projects.\nThis value will be used in the fontPackage parameter in the generated IconData instances."
+    },
+    "create": "CREATE"
+  },
+  "packages": {
+    "icons": "{{count}} icons"
+  },
+  "createNewPackage": "Create new package"
+}

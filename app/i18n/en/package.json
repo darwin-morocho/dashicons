@@ -1,0 +1,54 @@
+{
+  "buttons": {
+    "uploadIcons": "Upload icons",
+    "dropdown": {
+      "moreOptions": "Más opciones",
+      "clear": "Clear selected icons",
+      "removeAll": "Remove all icons"
+    }
+  },
+  "usedStorage": "Used storage {{value}}%",
+  "reorder": {
+    "enable": "Enable re-order icons",
+    "disable": "Disable re-order icons",
+    "toast": "Press and hold an icon to change its order"
+  },
+  "dragAndDropHere": "Drag your svg icons here",
+  "clicHere": "Click here to upload your svg icons",
+  "download": "Download",
+  "packageIcons": "Package icons",
+  "dartCode": "Dart code",
+  "undo": "Undo changes",
+  "pusblish": "Publish changes",
+  "selectAll": "Select all",
+  "icons": {
+    "edit": "Edit name",
+    "remove": "Remove",
+    "copy": "Copy",
+    "download": "Download SVG"
+  },
+  "import": {
+    "label": "Import config file",
+    "cloudicons": "From icons.meedu.app",
+    "fluttericon": "From fluttericon.com",
+    "overrideIcons": "Override icons",
+    "mergeIcons": "Merge icons"
+  },
+  "failures": {
+    "upload": {
+      "message": "The next icons could not be uploaded:",
+      "missingViewBoxOrDimensions": "({{fileName}}) Missing viewBox, width or height properties in the svg file.",
+      "pathNotFound": "({{fileName}}) does not contain a valid path.",
+      "multiPath": "({{fileName}}) multi path are not supported.",
+      "invalidFile": "({{fileName}}) invalid svg.",
+      "invalidFileName": "({{fileName}}) invalid file name.\nOnly letters, numbers and underscores are allowed.\nDon't use numbers or underscores at the begining.\nYour file name must contain at least one letter."
+    },
+    "duplicatedName": "There is already an icon with the name entered"
+  },
+  "copy": "COPY",
+  "copied": "Copied",
+  "cli": {
+    "label": "Now you can synchronize your icons in your flutter project quickly and easily with our CLI",
+    "install": "Install CLI"
+  }
+}

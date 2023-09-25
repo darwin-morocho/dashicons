@@ -1,0 +1,26 @@
+{
+  "title": "Sign In",
+  "signIn": "SIGN IN",
+  "signUp": "Create a new account",
+  "forgotPassword": "Forgot Password",
+  "signInWithGoogle": "Sign In with Google",
+  "pageView": {
+    "item1": "**Simple and fast**\n\nConvert your svg icons to a lighter format and improve the performance of your apps.",
+    "item2": "**Cloud storage**\n\nYour icons are automatically stored in our cloud and you can access them whenever you want.",
+    "item3": "**Real-time synchronization**\n\nWork as a team and increase your productivity, you can visualize in real-time the changes and new icons added by other users.",
+    "item4": "**Easy integration**\n\nAdd your icons to your application in a very simple way using our CLI or downloading the configuration files."
+  },
+  "forgotPasswordDialog": {
+    "title": "Forgot Your Password?",
+    "label": "Enter your email address to reset your password",
+    "button": "Send",
+    "success": "We have sent an email to reset your password",
+    "emailNotFound": "No account was found with the email {{email}}"
+  },
+  "terms(rich)": [
+    "By continuing you agree to our ",
+    "Terms and Conditions",
+    " and our ",
+    "Privacy Policy"
+  ]
+}

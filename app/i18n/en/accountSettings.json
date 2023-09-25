@@ -1,0 +1,12 @@
+{
+  "apiKeys": {
+    "title": "My API Keys",
+    "generate": "Generate a new API Key",
+    "note": "Remember to store your API Keys in a secure place and not share them with anyone.",
+    "delete": {
+      "label": "Delete API Key?",
+      "delete": "Delete",
+      "cancel": "Cancel"
+    }
+  }
+}

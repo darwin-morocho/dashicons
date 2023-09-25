@@ -1,0 +1,11 @@
+{
+  "cancel": "CANCEL",
+  "accept": "ACCEPT",
+  "update": "UPDATE",
+  "goBack": "GO BACK",
+  "failures": {
+    "network": "Network error, check your internet connection and try again",
+    "unhandled": "Your request could not be processed",
+    "tooManyRequest": "Too many requests. Wait some minutes and try again"
+  }
+}

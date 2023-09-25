@@ -1,0 +1,54 @@
+{
+  "buttons": {
+    "uploadIcons": "Subir iconos",
+    "dropdown": {
+      "moreOptions": "Más opciones",
+      "clear": "Limpiar selección",
+      "removeAll": "Eliminar todos los iconos"
+    }
+  },
+  "usedStorage": "Espacio usado {{value}}%",
+  "reorder": {
+    "enable": "Habilitar re-ordernar iconos",
+    "disable": "Desactivar re-ordernar",
+    "toast": "Manten presionado un icono para cambiar su orden"
+  },
+  "dragAndDropHere": "Arrastra tus iconos svg aquí",
+  "clicHere": "Clic aquí para subir tus iconos svg",
+  "download": "Descargar",
+  "packageIcons": "Iconos del paquete",
+  "dartCode": "Código dart",
+  "undo": "Deshacer cambios",
+  "pusblish": "Publicar cambios",
+  "selectAll": "Seleccionar todos",
+  "icons": {
+    "edit": "Cambiar nombre",
+    "remove": "Eliminar",
+    "copy": "Copiar",
+    "download": "Descargar SVG"
+  },
+  "import": {
+    "label": "Importar archivo de configuración",
+    "cloudicons": "Desde icons.meedu.app",
+    "fluttericon": "Desde fluttericon.com",
+    "overrideIcons": "Sobreescribir iconos",
+    "mergeIcons": "Fusionar iconos"
+  },
+  "failures": {
+    "upload": {
+      "message": "Los siguientes iconos no pudieron ser cargados:",
+      "missingViewBoxOrDimensions": "({{fileName}}) no contiene una de las siguientes propiedades viewBox, width o height.",
+      "pathNotFound": "({{fileName}}) no contiene un path válido.",
+      "multiPath": "({{fileName}}) multi path no esta soportado.",
+      "invalidFile": "({{fileName}}) svg inválido.",
+      "invalidFileName": "({{fileName}}) nombre de archivo inválido.\nSolo se permite letras, números y guiones bajo.\nNo use un número o guion vajo al inicio.\nEl nombre del archivo debe contener al menos un letra."
+    },
+    "duplicatedName": "Ya existe un icono con el nombre ingresado"
+  },
+  "copy": "COPIAR",
+  "copied": "Copiado",
+  "cli": {
+    "label": "Ahora puedes sincronizar tus iconos en tu proyecto flutter de una forma ágil y rápida con nuestro CLI",
+    "install": "Instalar CLI"
+  }
+}

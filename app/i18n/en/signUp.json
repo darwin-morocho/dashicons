@@ -1,0 +1,18 @@
+{
+  "title": "Sign Up",
+  "fullName": "First Name and LastName or Company Name",
+  "email": "E-mail",
+  "password": "Password",
+  "invalidFields": {
+    "password": {
+      "blankSpaces": "Password cannot contains blank spaces",
+      "length": "Your password must be at least 6 length"
+    },
+    "email": "Invalid e-mail",
+    "fullName": "Invalid full name"
+  },
+  "signUp": "SIGN UP",
+  "failures": {
+    "duplicated": "Already exists an account with the entered email"
+  }
+}

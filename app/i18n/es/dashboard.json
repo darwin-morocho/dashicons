@@ -1,0 +1,23 @@
+{
+  "createMyFirstIconsPackage": "Crear mi primer paquete de iconos",
+  "newPackage": {
+    "title": "Nuevo paquete de iconos",
+    "name": {
+      "label": "Nombre",
+      "info": "Nombre para tu paquete de iconos"
+    },
+    "fontFamily": {
+      "label": "Font family",
+      "info": "Example: CustomIcons\nEl font family para tu archivo ttf y el nombre de la clase Dart"
+    },
+    "fontPackage": {
+      "label": "Font package (optional)",
+      "info": "Solo para flutter.\nEste valor será el parámetro fontPackage para tus instancias de la clase IconData."
+    },
+    "create": "CREAR"
+  },
+  "packages": {
+    "icons": "{{count}} iconos"
+  },
+  "createNewPackage": "Crear nuevo paquete"
+}

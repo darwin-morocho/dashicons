@@ -1,0 +1,26 @@
+{
+  "title": "Iniciar sesión",
+  "signIn": "INGRESAR",
+  "signUp": "Crear mi cuenta",
+  "forgotPassword": "Olvide mi contraseña",
+  "signInWithGoogle": "Ingresar con Google",
+  "pageView": {
+    "item1": "**Simple y rapido**\n\nConvierte tus iconos svg a un formato más ligero y mejora el rendimiento de tus apps.",
+    "item2": "**Almacenamiento en la nube**\n\nTus iconos son automaticamente almacenados en nuestra nube y podras acceder a ellos cuando quieras.",
+    "item3": "**Sincronización en tiempo real**\n\nTrabaja en equipo e incrementa tu productividad, podras visualizar en tiempo real los cambios y nuevos iconos agregados por otros usuarios.",
+    "item4": "**Facil integración**\n\nAgrega tus iconos a tu aplicación de una forma muy sencilla usando nuestro CLI o descargando los arhivos de configuración."
+  },
+  "forgotPasswordDialog": {
+    "title": "¿Olvidaste tu contraseña?",
+    "label": "Ingresa tu correo electrónico para restablecer tu contraseña",
+    "button": "Enviar",
+    "success": "Hemos enviado un correo para restablecer tu contraseña",
+    "emailNotFound": "No se encontró una cuenta con el correo {{email}}"
+  },
+  "terms": [
+    "Al ingresar aceptas nuestros  ",
+    "términos y condiciones",
+    " y nuestra ",
+    "política de privacidad"
+  ]
+}
