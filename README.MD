@@ -1,15 +1,15 @@
-
 # Local deploy
 
 First install Nodejs 18.x or higher
 
-## Backend
+## Backend (NodeJS)
 
 Go to the `./backend` folder and add your `firebase-admin.json` and your `.env`
 
-example:
----
+## example:
+
 .env
+
 ```
 PORT=9000
 
@@ -21,8 +21,11 @@ SMTP_PORT=587
 SMTP_USER=your-stmp-user@meedu.app
 SMTP_PASSWORD=your-password
 ```
+
 ---
+
 firebase-admin.json
+
 ```JSON
 {
   "type": "service_account",
@@ -40,11 +43,12 @@ firebase-admin.json
 
 Next run `npm install` and run the project using `npm run dev`.
 
+## Flutter APP (only web and macOS)
 
-## Flutter APP
 Go to the `./app` folder and add your `env.json` file with your firebase credentials.
 
 Example:
+
 ```JSON
 {
   "webApiKey": "YOUR_WEB_API_KEY",
@@ -59,5 +63,13 @@ Example:
 }
 ```
 
+Run your app on Web using
 
-## CLI APP
+```shell
+flutter run -d chrome --web-renderer html --release --dart-define-from-file=env.json
+```
+
+For macOS you need to add your `GoogleService-Info.plist` into the `macos/runner folder`
+
+
+## CLI APP (dart command line application)
