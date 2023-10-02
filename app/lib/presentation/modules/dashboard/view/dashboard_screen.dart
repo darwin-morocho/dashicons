@@ -41,7 +41,9 @@ class DashboardScreen extends ConsumerWidget {
                       const SizedBox(height: 30),
                       ElevatedButton(
                         onPressed: () => addOrUpdatePackage(context),
-                        child: Text(texts.dashboard.createMyFirstIconsPackage),
+                        child: Text(
+                          texts.dashboard.createMyFirstIconsPackage,
+                        ),
                       ),
                     ],
                   );

@@ -23,7 +23,7 @@ class MyApp extends ConsumerWidget {
     if (initialized) {
       return MaterialApp.router(
         locale: TranslationProvider.of(context).flutterLocale,
-        // debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
         routerConfig: routerProvider.read,
