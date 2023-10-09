@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter_meedu/meedu.dart';
+import 'package:flutter_meedu/notifiers.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../domain/models/package.dart';
 import '../../../../domain/use_cases/packages/create_package.dart';
@@ -10,13 +11,13 @@ import '../../../../domain/use_cases/packages/update_package.dart';
 import '../../../dependency_injection.dart';
 import 'dashboard_state.dart';
 
-final dashboardProvider = StateProvider<DashboardBloc, DashboardState>(
+final dashboardProvider = StateNotifierProvider<DashboardBloc, DashboardState>(
   (_) => DashboardBloc(
     const DashboardState.loading(),
-    getUserPackagesUseCase: GetUserPackagesUseCase(Repositories.packages),
-    createPackageUseCase: CreatePackageUseCase(Repositories.packages),
-    listenPackageUseCase: ListenPackageUseCase(Repositories.packages),
-    updatePackageUseCase: UpdatePackageUseCase(Repositories.packages),
+    getUserPackagesUseCase: GetUserPackagesUseCase(Repositories.packages.read()),
+    createPackageUseCase: CreatePackageUseCase(Repositories.packages.read()),
+    listenPackageUseCase: ListenPackageUseCase(Repositories.packages.read()),
+    updatePackageUseCase: UpdatePackageUseCase(Repositories.packages.read()),
   )..init(),
 );
 

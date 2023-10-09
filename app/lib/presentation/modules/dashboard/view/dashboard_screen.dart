@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../generated/assets.gen.dart';

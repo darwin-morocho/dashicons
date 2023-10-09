@@ -44,7 +44,7 @@ Future<void> uploadSvgsData(BuildContext context, List<SvgData> items) async {
   final svgs = parserResult.$2;
 
   if (svgs.isNotEmpty) {
-    final updated = await packageProvider.read.onAddIcons(svgs);
+    final updated = await packageProvider.read().onAddIcons(svgs);
     if (!updated) {
       toast(texts.misc.failures.unhandled);
     }

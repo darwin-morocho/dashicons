@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/rx.dart';
 import 'package:hooks_meedu/hooks_meedu.dart';
 import 'package:hooks_meedu/rx_hook.dart';
 import 'package:overlay_support/overlay_support.dart';
@@ -46,7 +47,7 @@ class PackageSegmentedControls extends StatelessWidget {
                     return Material(
                       color: tabIndex == i ? AppColors.darkLight : Colors.white,
                       child: InkWell(
-                        onTap: () => packageProvider.read.onTabIndexChanged(i),
+                        onTap: () => packageProvider.read().onTabIndexChanged(i),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             vertical: 4,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../../global/widgets/max_size.dart';
 import '../bloc/package_bloc.dart';

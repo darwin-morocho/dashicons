@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 import '../../../../../../domain/use_cases/api_keys/delete.dart';
@@ -71,7 +71,9 @@ class ApiKeysView extends ConsumerWidget {
                             if (context.mounted && confirmed) {
                               Loader.show(
                                 context,
-                                DeleteApiKeyUseCase(Repositories.apiKeys)(apiKey.id),
+                                DeleteApiKeyUseCase(
+                                  Repositories.apiKeys.read(),
+                                )(apiKey.id),
                               );
                             }
                           },
@@ -111,7 +113,9 @@ class ApiKeysView extends ConsumerWidget {
   Future<void> _generateApiKey(BuildContext context) async {
     await Loader.show(
       context,
-      GenerateApiKeyUseCase(Repositories.apiKeys)(),
+      GenerateApiKeyUseCase(
+        Repositories.apiKeys.read(),
+      )(),
     );
   }
 }

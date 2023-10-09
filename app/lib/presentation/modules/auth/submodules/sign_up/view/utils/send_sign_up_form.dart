@@ -5,7 +5,7 @@ import '../../../../../../router/router.dart';
 import '../../bloc/sign_up_bloc.dart';
 
 Future<void> sendSignUpForm(BuildContext context) async {
-  final result = await signUpProvider.read.submit();
+  final result = await signUpProvider.read().submit();
 
   if (context.mounted) {
     result.when(

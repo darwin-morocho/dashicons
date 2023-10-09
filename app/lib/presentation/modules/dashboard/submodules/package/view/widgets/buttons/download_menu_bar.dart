@@ -54,7 +54,7 @@ class DownloadMenuBar extends StatelessWidget {
               MeeduIcons.download.icon(),
               const SizedBox(width: 10),
               Text(
-                '${packageProvider.read.state.package.fontFamily}.ttf',
+                '${packageProvider.read().state.package.fontFamily}.ttf',
               )
             ],
           ),

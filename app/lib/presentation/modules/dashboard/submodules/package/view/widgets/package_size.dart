@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../../../generated/translations.g.dart';
 import '../../../../../../global/extensions/widgets.dart';
@@ -13,7 +14,13 @@ class PackageSize extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, BuilderRef ref) {
-    final state = ref.watch(packageProvider.select((bloc) => bloc.package.icons.length)).state;
+    final state = ref
+        .watch(
+          packageProvider.select(
+            (bloc) => bloc.package.icons.length,
+          ),
+        )
+        .state;
     final size = utf8
             .encode(jsonEncode(
               state.package.toJson(),

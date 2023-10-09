@@ -10,8 +10,8 @@ import '../../../../view/popups/new_package.dart';
 import '../../bloc/package_bloc.dart';
 
 Future<void> showPackages(BuildContext context) async {
-  final packageBloc = packageProvider.read;
-  await dashboardProvider.read.state.mapOrNull(
+  final packageBloc = packageProvider.read();
+  await dashboardProvider.read().state.mapOrNull(
     loaded: (state) async {
       final result = await showContextMenu(
         context: context,
@@ -70,7 +70,7 @@ Future<void> showPackages(BuildContext context) async {
           packageBloc.onPackageChanged(createdPackage);
         }
       } else {
-        dashboardProvider.read.state.mapOrNull(
+        dashboardProvider.read().state.mapOrNull(
           loaded: (state) {
             packageBloc.onPackageChanged(
               state.packages.firstWhere((element) => element.id == result),

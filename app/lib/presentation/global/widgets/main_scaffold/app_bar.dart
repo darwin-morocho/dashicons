@@ -1,6 +1,7 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../generated/translations.g.dart';
@@ -126,7 +127,7 @@ class MainAppBar extends ConsumerWidget implements PreferredSizeWidget {
         AccountSettingsRoute().push(context);
         break;
       case ProfileMenuOption.signOut:
-        await sessionProvider.read.signOut();
+        await sessionProvider.read().signOut();
         if (context.mounted) {
           AuthRoute().go(context);
         }

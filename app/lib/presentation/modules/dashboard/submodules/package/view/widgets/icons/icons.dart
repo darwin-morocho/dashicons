@@ -25,28 +25,29 @@ class IconsViewer extends StatefulWidget {
 
 class _IconsViewerState extends State<IconsViewer> {
   final _scrollController = ScrollController();
-  late PackageState _state = packageProvider.read.state;
+  late PackageState _state = packageProvider.read().state;
   FontCache? _cache;
   String _fontFamily = '';
-  StreamSubscription? _subscription;
-  late final _getCachedFontUseCase = GetCachedFontUseCase(Repositories.packages);
+  late final _getCachedFontUseCase = GetCachedFontUseCase(
+    Repositories.packages.read(),
+  );
 
   @override
   void initState() {
     super.initState();
     _init();
-    _subscription = packageProvider.read.stream.listen(
-      (state) {
-        _state = state;
-        _init();
-      },
-    );
+    packageProvider.read().addListener(_listener);
+  }
+
+  void _listener(PackageState state) {
+    _state = state;
+    _init();
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
-    _subscription?.cancel();
+    packageProvider.read().removeListener(_listener);
     super.dispose();
   }
 
@@ -115,7 +116,7 @@ class _IconsViewerState extends State<IconsViewer> {
         Expanded(
           child: ReorderableGridView.builder(
             controller: _scrollController,
-            onReorder: packageProvider.read.onReorder,
+            onReorder: packageProvider.read().onReorder,
             padding: const EdgeInsets.symmetric(vertical: 30).copyWith(top: 20),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 60,
@@ -130,7 +131,7 @@ class _IconsViewerState extends State<IconsViewer> {
                 reorder: _state.reorder,
                 icon: item,
                 fontFamily: _fontFamily,
-                onTap: () => packageProvider.read.onToggleSelection(item),
+                onTap: () => packageProvider.read().onToggleSelection(item),
                 onRightClick: (context) => showIconOptionsContextMenu(
                   context: context,
                   icon: item,

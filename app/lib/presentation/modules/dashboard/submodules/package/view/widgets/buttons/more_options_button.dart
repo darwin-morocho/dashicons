@@ -28,7 +28,7 @@ class MoreOptionsButton extends StatelessWidget {
   }
 
   Future<void> _showMenu(BuildContext context) async {
-    final bloc = packageProvider.read;
+    final bloc = packageProvider.read();
     final result = await showContextMenu(
       context: context,
       items: [

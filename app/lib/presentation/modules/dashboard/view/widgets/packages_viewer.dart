@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 
 import '../../../../../domain/models/package.dart';
 import '../../../../generated/translations.g.dart';

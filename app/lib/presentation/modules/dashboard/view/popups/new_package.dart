@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/rx.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 import 'package:hooks_meedu/rx_hook.dart';
 import 'package:overlay_support/overlay_support.dart';
 
@@ -52,7 +53,7 @@ class NewPackage extends HookWidget {
     Future<void> create() async {
       fetching.value = true;
 
-      final createdPackage = await dashboardProvider.read.createPackage(
+      final createdPackage = await dashboardProvider.read().createPackage(
         state.value,
       );
 
@@ -72,7 +73,7 @@ class NewPackage extends HookWidget {
     Future<void> update() async {
       fetching.value = true;
 
-      final updated = await dashboardProvider.read.updatePackage(
+      final updated = await dashboardProvider.read().updatePackage(
         state.value,
       );
 

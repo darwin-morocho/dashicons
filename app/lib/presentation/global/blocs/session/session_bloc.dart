@@ -1,4 +1,5 @@
-import 'package:flutter_meedu/meedu.dart';
+import 'package:flutter_meedu/notifiers.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../domain/models/user.dart';
 import '../../../../domain/use_cases/auth/get_authenticated_user.dart';
@@ -6,11 +7,15 @@ import '../../../../domain/use_cases/auth/sign_out.dart';
 import '../../../dependency_injection.dart';
 import 'session_state.dart';
 
-final sessionProvider = StateProvider<SessionBloc, SessionState>(
+final sessionProvider = StateNotifierProvider<SessionBloc, SessionState>(
   (_) => SessionBloc(
     const SessionState(),
-    getAuthenticatedUserUseCase: GetAuthenticatedUserUseCase(Repositories.auth),
-    signOutUseCase: SignOutUseCase(Repositories.auth),
+    getAuthenticatedUserUseCase: GetAuthenticatedUserUseCase(
+      Repositories.auth.read(),
+    ),
+    signOutUseCase: SignOutUseCase(
+      Repositories.auth.read(),
+    ),
   )..init(),
 );
 

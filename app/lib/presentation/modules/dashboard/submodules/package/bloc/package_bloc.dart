@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter_meedu/meedu.dart';
+import 'package:flutter_meedu/notifiers.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../../../domain/models/package.dart';
 import '../../../../../../domain/models/svg_icon.dart';
@@ -12,16 +13,22 @@ import '../../../../../router/router.dart';
 import '../../../bloc/dashboard_bloc.dart';
 import 'package_state.dart';
 
-final packageProvider = StateProvider<PackageBloc, PackageState>(
+final packageProvider = StateNotifierProvider<PackageBloc, PackageState>(
   (ref) => PackageBloc(
     PackageState(
-      package: dashboardProvider.read.state.mapOrNull(
-        loaded: (state) => state.packages.firstWhere((e) => ref.arguments as String == e.id),
-      )!,
+      package: dashboardProvider.read().state.mapOrNull(
+            loaded: (state) => state.packages.firstWhere((e) => ref.arguments as String == e.id),
+          )!,
     ),
-    updatePackageUseCase: UpdatePackageUseCase(Repositories.packages),
-    listenPackageUseCase: ListenPackageUseCase(Repositories.packages),
-    updateBrowserUrlUseCase: UpdateBrowserUrlUseCase(Repositories.browserUtils),
+    updatePackageUseCase: UpdatePackageUseCase(
+      Repositories.packages.read(),
+    ),
+    listenPackageUseCase: ListenPackageUseCase(
+      Repositories.packages.read(),
+    ),
+    updateBrowserUrlUseCase: UpdateBrowserUrlUseCase(
+      Repositories.browserUtils.read(),
+    ),
   ),
 );
 

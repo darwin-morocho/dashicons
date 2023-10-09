@@ -8,7 +8,7 @@ import '../../bloc/sign_in_bloc.dart';
 Future<void> signInWithGoogle(BuildContext context) async {
   final result = await Loader.show(
     context,
-    signInProvider.read.signInWithGoogle(),
+    signInProvider.read().signInWithGoogle(),
   );
   if (context.mounted) {
     result.when(

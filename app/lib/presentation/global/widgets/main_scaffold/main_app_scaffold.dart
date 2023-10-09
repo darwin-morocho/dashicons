@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 
 import 'app_bar.dart';
 import 'footer.dart';

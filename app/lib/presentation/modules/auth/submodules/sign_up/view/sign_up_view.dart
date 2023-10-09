@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/providers.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 
 import '../../../../../generated/translations.g.dart';
 import '../../../../../global/extensions/widgets.dart';
@@ -45,7 +47,7 @@ class SignUpView extends ConsumerWidget {
               const SizedBox(height: 5),
               TextFormField(
                 textInputAction: TextInputAction.next,
-                onChanged: (text) => signUpProvider.read.onFullNameChanged(text),
+                onChanged: (text) => signUpProvider.read().onFullNameChanged(text),
               ),
               const SizedBox(height: 20),
               Text(texts.signUp.email),
@@ -54,7 +56,7 @@ class SignUpView extends ConsumerWidget {
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                onChanged: (text) => signUpProvider.read.onEmailChanged(text),
+                onChanged: (text) => signUpProvider.read().onEmailChanged(text),
                 validator: (text) {
                   text = text?.trim() ?? '';
                   if (isValidEmail(text)) {
@@ -69,7 +71,7 @@ class SignUpView extends ConsumerWidget {
               PasswordTextField(
                 textInputAction: TextInputAction.go,
                 onChanged: (text) {
-                  signUpProvider.read.onPasswordChanged(text);
+                  signUpProvider.read().onPasswordChanged(text);
                 },
               ),
               const SizedBox(height: 40),

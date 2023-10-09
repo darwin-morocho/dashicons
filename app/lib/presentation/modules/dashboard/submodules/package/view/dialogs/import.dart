@@ -41,7 +41,7 @@ Future<void> importConfigFile(BuildContext context) async {
       return;
     }
 
-    final bloc = packageProvider.read;
+    final bloc = packageProvider.read();
 
     final override = bloc.state.package.icons.isEmpty || result.$1 == 1;
     final file = pickerResult.files.first;
@@ -78,7 +78,7 @@ Future<void> importConfigFile(BuildContext context) async {
               (e) => SvgData(
                 fileName: e['name'],
                 svgAsString:
-                    '<svg><path d="${Repositories.packages.decodeCompressedSvgPath(e['path'])}"/></svg>',
+                    '<svg><path d="${Repositories.packages.read().decodeCompressedSvgPath(e['path'])}"/></svg>',
               ),
             )
             .toList();

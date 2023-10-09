@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/rx.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 import 'package:hooks_meedu/rx_hook.dart';
 
 import '../../../../../../../domain/use_cases/auth/send_reset_password_email.dart';
@@ -26,7 +27,9 @@ Future<void> showForgotPasswordForm(BuildContext context) async {
 
   final result = await Loader.show(
     context,
-    SendResetPasswordEmailUseCase(Repositories.auth)(email),
+    SendResetPasswordEmailUseCase(
+      Repositories.auth.read(),
+    )(email),
   );
 
   if (context.mounted) {

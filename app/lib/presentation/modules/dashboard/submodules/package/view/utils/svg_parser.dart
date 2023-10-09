@@ -10,7 +10,7 @@ import '../../bloc/package_bloc.dart';
   final svgs = <SvgIcon>[];
   final errors = <String>[];
 
-  final bloc = packageProvider.read;
+  final bloc = packageProvider.read();
 
   final names = bloc.state.package.icons.map((e) => e.name).toList();
   int index = bloc.state.package.lastId;
@@ -58,7 +58,7 @@ import '../../bloc/package_bloc.dart';
       SvgIcon(
         id: index,
         name: name,
-        path: Repositories.packages.compressSvgPath(path),
+        path: Repositories.packages.read().compressSvgPath(path),
       ),
     );
   }

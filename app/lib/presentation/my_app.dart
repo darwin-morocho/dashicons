@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import 'generated/translations.g.dart';
 import 'global/blocs/session/session_bloc.dart';
@@ -26,7 +27,7 @@ class MyApp extends ConsumerWidget {
         debugShowCheckedModeBanner: false,
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        routerConfig: routerProvider.read,
+        routerConfig: routerProvider.read(),
         theme: lightTheme,
         builder: (_, child) => Loader(child: child),
       );

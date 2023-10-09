@@ -29,7 +29,7 @@ Future<void> showEditIconNamePopup(
     return;
   }
 
-  final bloc = packageProvider.read;
+  final bloc = packageProvider.read();
   bool duplicated = false;
   for (final icon in bloc.state.package.icons) {
     if (icon.name == name) {

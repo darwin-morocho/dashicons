@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_meedu/meedu.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/providers.dart';
 import 'package:go_router/go_router.dart';
 
 import '../global/blocs/session/session_bloc.dart';
@@ -25,19 +24,14 @@ part 'routes/terms.dart';
 
 final routerProvider = Provider(
   (ref) => GoRouter(
-    observers: [
-      router.observer,
-    ],
-    initialLocation:
-        sessionProvider.read.state.user != null ? DashboardRoute().location : AuthRoute().location,
+    initialLocation: sessionProvider.read().state.user != null
+        ? DashboardRoute().location
+        : AuthRoute().location,
     errorBuilder: (_, __) => const ErrorView(),
     routes: [
       AuthRoute._read,
       TermsAndPrivacyRoute._read,
       ShellRoute(
-        observers: [
-          router.observer,
-        ],
         pageBuilder: (_, state, navigator) => CustomTransitionPage(
           key: state.pageKey,
           child: MainAppScaffold(child: navigator),
@@ -54,11 +48,10 @@ final routerProvider = Provider(
       ),
     ],
   ),
-  autoDispose: false,
 );
 
 FutureOr<String?> authMiddleware(BuildContext context, GoRouterState state) {
-  if (sessionProvider.read.state.user != null) {
+  if (sessionProvider.read().state.user != null) {
     return null;
   }
   return AuthRoute.path;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 
 import '../../../global/widgets/main_scaffold/footer.dart';
 import '../../../global/widgets/max_size.dart';

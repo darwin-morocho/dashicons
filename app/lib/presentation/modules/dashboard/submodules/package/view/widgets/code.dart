@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_meedu/ui.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/screen_utils.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:overlay_support/overlay_support.dart';
 import 'package:url_launcher/url_launcher_string.dart';

@@ -1,4 +1,5 @@
-import 'package:flutter_meedu/meedu.dart';
+import 'package:flutter_meedu/notifiers.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../../../domain/failures/sign_in_failure.dart';
 import '../../../../../../domain/failures/sign_up_failure.dart';
@@ -10,12 +11,16 @@ import '../../../../../dependency_injection.dart';
 import '../../../../../global/blocs/session/session_bloc.dart';
 import 'sign_in_state.dart';
 
-final signInProvider = StateProvider<SignInBloc, SignInState>(
+final signInProvider = StateNotifierProvider<SignInBloc, SignInState>(
   (_) => SignInBloc(
     const SignInState(),
-    sessionBloc: sessionProvider.read,
-    signInUseCase: SignInUseCase(Repositories.auth),
-    signInWithGoogleUseCase: SignInWithGoogleUseCase(Repositories.auth),
+    sessionBloc: sessionProvider.read(),
+    signInUseCase: SignInUseCase(
+      Repositories.auth.read(),
+    ),
+    signInWithGoogleUseCase: SignInWithGoogleUseCase(
+      Repositories.auth.read(),
+    ),
   ),
 );
 

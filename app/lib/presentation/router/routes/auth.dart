@@ -10,7 +10,7 @@ class AuthRoute extends AppRoute {
     return GoRoute(
       path: path,
       redirect: (_, __) {
-        if (sessionProvider.read.state.user != null) {
+        if (sessionProvider.read().state.user != null) {
           return DashboardRoute.path;
         }
         return null;

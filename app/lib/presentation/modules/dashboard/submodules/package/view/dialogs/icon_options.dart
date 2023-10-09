@@ -96,7 +96,7 @@ void showIconOptionsContextMenu({
         );
 
       case _ContextMenu.delete:
-        packageProvider.read.onRemove(icon);
+        packageProvider.read().onRemove(icon);
       case _ContextMenu.copy:
         showSimpleNotification(
           Row(
@@ -117,7 +117,7 @@ void showIconOptionsContextMenu({
           ClipboardData(text: icon.name),
         );
       case _ContextMenu.download:
-        Repositories.packages.downloadSvgIcon(icon);
+        Repositories.packages.read().downloadSvgIcon(icon);
     }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:archive/archive.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_meedu/meedu.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../data/http.dart';
 import '../data/repositories_impl/api_keys_repository.dart';
@@ -28,12 +28,12 @@ void injectDependencies({
   required CacheService cacheService,
   required CompressorService compressorService,
 }) {
-  Get.lazyPut<AuthRepository>(
-    () => AuthRepositoryImpl(firebaseAuth, http),
+  Repositories.auth.setArguments(
+    (auth: firebaseAuth, http: http),
   );
 
-  Get.lazyPut<PackagesRepository>(
-    () => PackagesRepositoryImpl(
+  Repositories.packages.setArguments(
+    (
       saveFileService: saveFileService,
       cacheService: cacheService,
       packagesService: PackagesService(firebaseAuth, firestore),
@@ -42,15 +42,15 @@ void injectDependencies({
     ),
   );
 
-  Get.lazyPut<BrowserUtilsRepository>(
-    () => BrowserUtilsRepositoryImpl(browserService),
+  Repositories.browserUtils.setArguments(
+    browserService,
   );
 
-  Get.lazyPut<ApiKeysRepository>(
-    () => ApiKeysRepositoryImpl(
-      firebaseAuth,
-      firestore,
-      http,
+  Repositories.apiKeys.setArguments(
+    (
+      auth: firebaseAuth,
+      store: firestore,
+      http: http,
     ),
   );
 }
@@ -58,8 +58,46 @@ void injectDependencies({
 class Repositories {
   Repositories._();
 
-  static AuthRepository get auth => Get.find();
-  static PackagesRepository get packages => Get.find();
-  static BrowserUtilsRepository get browserUtils => Get.find();
-  static ApiKeysRepository get apiKeys => Get.find();
+  static final auth = ArgumentsProvider<AuthRepository, ({FirebaseAuth auth, Http http})>(
+    (ref) => AuthRepositoryImpl(
+      ref.arguments.auth,
+      ref.arguments.http,
+    ),
+  );
+
+  static final packages = ArgumentsProvider<
+      PackagesRepository,
+      ({
+        PackagesService packagesService,
+        Http http,
+        SaveFileService saveFileService,
+        CacheService cacheService,
+        CompressorService compressorService,
+      })>(
+    (ref) => PackagesRepositoryImpl(
+      packagesService: ref.arguments.packagesService,
+      http: ref.arguments.http,
+      saveFileService: ref.arguments.saveFileService,
+      cacheService: ref.arguments.cacheService,
+      compressorService: ref.arguments.compressorService,
+    ),
+  );
+
+  static final browserUtils = ArgumentsProvider<BrowserUtilsRepository, BrowserWebService>(
+    (ref) => BrowserUtilsRepositoryImpl(ref.arguments),
+  );
+
+  static final apiKeys = ArgumentsProvider<
+      ApiKeysRepository,
+      ({
+        FirebaseAuth auth,
+        FirebaseFirestore store,
+        Http http,
+      })>(
+    (ref) => ApiKeysRepositoryImpl(
+      ref.arguments.auth,
+      ref.arguments.store,
+      ref.arguments.http,
+    ),
+  );
 }

@@ -1,4 +1,5 @@
-import 'package:flutter_meedu/meedu.dart';
+import 'package:flutter_meedu/notifiers.dart';
+import 'package:flutter_meedu/providers.dart';
 
 import '../../../../../../domain/failures/sign_up_failure.dart';
 import '../../../../../../domain/models/user.dart';
@@ -8,11 +9,13 @@ import '../../../../../dependency_injection.dart';
 import '../../../../../global/blocs/session/session_bloc.dart';
 import 'sign_up_state.dart';
 
-final signUpProvider = StateProvider<SignUpBloc, SignUpState>(
+final signUpProvider = StateNotifierProvider<SignUpBloc, SignUpState>(
   (_) => SignUpBloc(
     const SignUpState(),
-    signUpUseCase: SignUpUseCase(Repositories.auth),
-    sessionBloc: sessionProvider.read,
+    signUpUseCase: SignUpUseCase(
+      Repositories.auth.read(),
+    ),
+    sessionBloc: sessionProvider.read(),
   ),
 );
 

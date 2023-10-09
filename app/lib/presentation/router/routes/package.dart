@@ -32,21 +32,21 @@ Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   }
 
   DashboardLoadedState? loadedState;
-  if (!dashboardProvider.mounted) {
-    late StreamSubscription subscription;
+  if (!dashboardProvider.mounted()) {
     final completer = Completer();
-    subscription = dashboardProvider.read.stream.listen(
-      (state) {
-        subscription.cancel();
-        state.mapOrNull(
-          loaded: (state) => loadedState = state,
-        );
-        completer.complete();
-      },
-    );
+    final bloc = dashboardProvider.read();
+    late final void Function(DashboardState) listener;
+    listener = (state) {
+      bloc.removeListener(listener);
+      state.mapOrNull(
+        loaded: (state) => loadedState = state,
+      );
+      completer.complete();
+    };
+    bloc.addListener(listener);
     await completer.future;
   } else {
-    dashboardProvider.read.state.mapOrNull(
+    dashboardProvider.read().state.mapOrNull(
       loaded: (state) {
         state.mapOrNull(
           loaded: (state) => loadedState = state,

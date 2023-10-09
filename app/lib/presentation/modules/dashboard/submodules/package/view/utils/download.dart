@@ -7,20 +7,24 @@ import '../../../../../../global/widgets/loader.dart';
 import '../../bloc/package_bloc.dart';
 
 Future<void> downloadFontIcons(BuildContext context) async {
-  final package = packageProvider.read.state.package;
+  final package = packageProvider.read().state.package;
 
   if (package.icons.isNotEmpty) {
     await Loader.show(
       context,
-      DownloadFontUseCase(Repositories.packages)(package),
+      DownloadFontUseCase(
+        Repositories.packages.read(),
+      )(package),
     );
   }
 }
 
 void downloadBackup(BuildContext context) {
-  final package = packageProvider.read.state.package;
+  final package = packageProvider.read().state.package;
 
   if (package.icons.isNotEmpty) {
-    DownloadBackupUseCase(Repositories.packages)(package);
+    DownloadBackupUseCase(
+      Repositories.packages.read(),
+    )(package);
   }
 }
