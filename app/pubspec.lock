@@ -447,10 +447,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_meedu
-      sha256: "2fed910576922d92b814322da9e8d0a912cac65e40b5259b96751f40e381cb54"
+      sha256: b242cd461d1368c7d0dd0141bbac5495e526d6fa0a47d49b2b2d784df2c54ebb
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0-beta.1"
+    version: "9.0.0-beta.2"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:

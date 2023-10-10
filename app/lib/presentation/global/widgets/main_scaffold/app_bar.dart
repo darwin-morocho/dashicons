@@ -5,6 +5,7 @@ import 'package:flutter_meedu/screen_utils.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../generated/translations.g.dart';
+import '../../../modules/dashboard/bloc/dashboard_bloc.dart';
 import '../../../router/router.dart';
 import '../../blocs/session/session_bloc.dart';
 import '../../dialogs/context_menu.dart';
@@ -128,6 +129,7 @@ class MainAppBar extends ConsumerWidget implements PreferredSizeWidget {
         break;
       case ProfileMenuOption.signOut:
         await sessionProvider.read().signOut();
+        dashboardProvider.dispose();
         if (context.mounted) {
           AuthRoute().go(context);
         }

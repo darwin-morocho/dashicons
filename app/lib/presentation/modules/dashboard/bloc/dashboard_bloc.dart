@@ -19,6 +19,7 @@ final dashboardProvider = StateNotifierProvider<DashboardBloc, DashboardState>(
     listenPackageUseCase: ListenPackageUseCase(Repositories.packages.read()),
     updatePackageUseCase: UpdatePackageUseCase(Repositories.packages.read()),
   )..init(),
+  autoDispose: false,
 );
 
 class DashboardBloc extends StateNotifier<DashboardState> {

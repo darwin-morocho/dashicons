@@ -13,11 +13,13 @@ import '../../../../../router/router.dart';
 import '../../../bloc/dashboard_bloc.dart';
 import 'package_state.dart';
 
-final packageProvider = StateNotifierProvider<PackageBloc, PackageState>(
+final packageProvider = StateNotifierArgumentsProvider<PackageBloc, PackageState, String>(
   (ref) => PackageBloc(
     PackageState(
       package: dashboardProvider.read().state.mapOrNull(
-            loaded: (state) => state.packages.firstWhere((e) => ref.arguments as String == e.id),
+            loaded: (state) => state.packages.firstWhere(
+              (e) => ref.arguments == e.id,
+            ),
           )!,
     ),
     updatePackageUseCase: UpdatePackageUseCase(
