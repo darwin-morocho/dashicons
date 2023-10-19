@@ -239,7 +239,7 @@ abstract class _Package implements Package {
       required final String? fontPackage,
       required final int lastId,
       @JsonKey(toJson: _iconsToJsonList)
-          required final List<SvgIcon> icons}) = _$_Package;
+      required final List<SvgIcon> icons}) = _$_Package;
 
   factory _Package.fromJson(Map<String, dynamic> json) = _$_Package.fromJson;
 

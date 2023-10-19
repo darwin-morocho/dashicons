@@ -1,4 +1,4 @@
-import 'package:meedu/get.dart';
+import 'package:meedu/providers.dart';
 
 import 'data/http.dart';
 import 'data/repositories_impl/auth_repository_impl.dart';
@@ -11,17 +11,37 @@ void injectRepositories({
   required Http http,
 }) {
   final authService = AuthService(http);
-  Get.lazyPut<AuthRepository>(
-    () => AuthRepositoryImpl(http, authService),
+  Repositories.auth.setArguments(
+    (http: http, authService: authService),
   );
-  Get.lazyPut<PackagesRepository>(
-    () => PackagesRepositoryImpl(http, authService),
+  Repositories.packages.setArguments(
+    (http: http, authService: authService),
   );
 }
 
 class Repositories {
   Repositories._();
 
-  static AuthRepository get auth => Get.find();
-  static PackagesRepository get packages => Get.find();
+  static final auth = Provider.arguments<
+      AuthRepository,
+      ({
+        Http http,
+        AuthService authService,
+      })>(
+    (ref) => AuthRepositoryImpl(
+      ref.arguments.http,
+      ref.arguments.authService,
+    ),
+  );
+  static final packages = Provider.arguments<
+      PackagesRepository,
+      ({
+        Http http,
+        AuthService authService,
+      })>(
+    (ref) => PackagesRepositoryImpl(
+      ref.arguments.http,
+      ref.arguments.authService,
+    ),
+  );
 }

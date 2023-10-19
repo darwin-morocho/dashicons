@@ -17,16 +17,16 @@ class Commands extends CommandRunner<void> {
       ),
     );
     addCommand(
-      LoginCommand(Repositories.auth),
+      LoginCommand(Repositories.auth.read()),
     );
     addCommand(
-      LogOutCommand(Repositories.auth),
+      LogOutCommand(Repositories.auth.read()),
     );
     addCommand(
-      InitCommand(Repositories.auth, Repositories.packages),
+      InitCommand(Repositories.auth.read(), Repositories.packages.read()),
     );
     addCommand(
-      PullCommand(Repositories.packages)
+      PullCommand(Repositories.packages.read())
         ..argParser.addOption(
           'file',
           help: '''

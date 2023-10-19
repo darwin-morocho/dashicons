@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:args/command_runner.dart';
 import 'package:dcli/dcli.dart';
+import 'package:path/path.dart';
 
 import '../domain/models/package.dart';
 import '../domain/repositories/auth_repositoty.dart';
@@ -38,8 +39,8 @@ class InitCommand extends Command<void> {
         throw Exception('❌ Your request could not be processed');
       }
       final package = menu<Package>(
+        '🤠 Witch package do you want to use?',
         fromStart: false,
-        prompt: '🤠 Witch package do you want to use?',
         options: packages,
         format: (package) => '${package.name} - ${package.fontFamily}',
       );
