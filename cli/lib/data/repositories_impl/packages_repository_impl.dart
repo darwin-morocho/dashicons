@@ -40,11 +40,17 @@ class PackagesRepositoryImpl implements PackagesRepository {
     String packageId, {
     String? apiKey,
   }) async {
+    final idToken = (await _authService.session)?.idToken;
+
+    if (idToken == null && apiKey == null) {
+      return null;
+    }
+
     final result = await _http.send(
       '/api/v1/cli/get-project/$packageId',
       headers: {
         if (apiKey == null)
-          'Authorization': 'Bearer ${(await _authService.session)?.idToken}'
+          'Authorization': 'Bearer $idToken'
         else
           'api-key': apiKey
       },

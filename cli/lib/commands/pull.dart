@@ -86,8 +86,11 @@ class PullCommand extends Command<void> {
 
       print('✅ pull sucessful');
       exit(0);
-    } catch (e) {
+    } catch (e, _) {
       print(e);
+      print(
+          'Try login again using `micons logout` and `micons login` or checking your apiKey');
+      print(_);
       exit(1);
     }
   }

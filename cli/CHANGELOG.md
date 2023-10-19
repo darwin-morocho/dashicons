@@ -1,3 +1,9 @@
+## 0.0.8
+- Fix `Invalid argument(s): Invalid or corrupted pad block`.
+
+## 0.0.7
+- Updated dependencies.
+
 ## 0.0.6
 - Updated dependencies.
 

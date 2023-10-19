@@ -1,15 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:encrypt/encrypt.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 
 import '../../domain/models/http_result.dart';
 import '../../domain/models/session.dart';
 import '../http.dart';
-
-final key = Key.fromLength(32);
-final iv = IV.fromLength(16);
 
 File get tokenFile {
   // Get the user's home directory to store the token
@@ -26,12 +22,9 @@ class AuthService {
   Future<void> saveSession(Session session) async {
     // Create the parent directory if it doesn't exist
     await tokenFile.parent.create(recursive: true);
-    final encrypter = Encrypter(AES(key));
-    final encryptedToken = encrypter.encrypt(
+    await tokenFile.writeAsString(
       jsonEncode(session.toJson()),
-      iv: iv,
     );
-    await tokenFile.writeAsString(encryptedToken.base64);
   }
 
   Future<HttpResult<Session>> _refreshToken(Session session) {
@@ -56,36 +49,38 @@ class AuthService {
   }
 
   Future<Session?> get session async {
-    if (!await tokenFile.exists()) {
+    try {
+      if (!await tokenFile.exists()) {
+        return null;
+      }
+
+      final session = Session.fromJson(
+        jsonDecode(
+          await tokenFile.readAsString(),
+        ),
+      );
+
+      final expiryDate = Jwt.getExpiryDate(session.idToken);
+
+      final diff = expiryDate!.difference(DateTime.now()).inSeconds;
+
+      if (diff >= 30) {
+        return session;
+      }
+
+      /// token will expire soon
+      /// it must be refreshed
+      final result = await _refreshToken(session);
+      return result.when(
+        success: (_, session) async {
+          await saveSession(session);
+          return session;
+        },
+        failed: (_, __) async => null,
+      );
+    } catch (_) {
       return null;
     }
-
-    final encrypter = Encrypter(AES(key));
-    final encryptedToken = await tokenFile.readAsString();
-    final session = Session.fromJson(
-      jsonDecode(
-        encrypter.decrypt64(encryptedToken, iv: iv),
-      ),
-    );
-
-    final expiryDate = Jwt.getExpiryDate(session.idToken);
-
-    final diff = expiryDate!.difference(DateTime.now()).inSeconds;
-
-    if (diff >= 30) {
-      return session;
-    }
-
-    /// token will expire soon
-    /// it must be refreshed
-    final result = await _refreshToken(session);
-    return result.when(
-      success: (_, session) async {
-        await saveSession(session);
-        return session;
-      },
-      failed: (_, __) async => null,
-    );
   }
 
   Future<void> logout() async {
