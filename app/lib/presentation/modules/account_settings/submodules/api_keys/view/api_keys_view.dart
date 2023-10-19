@@ -16,7 +16,7 @@ import '../../../../../global/widgets/loader.dart';
 import '../../../blocs/api_keys/api_keys_bloc.dart';
 
 class ApiKeysView extends ConsumerWidget {
-  const ApiKeysView({Key? key}) : super(key: key);
+  const ApiKeysView({super.key});
   @override
   Widget build(BuildContext context, ref) {
     final apiKeys = ref.watch(apiKeysProvider).state;

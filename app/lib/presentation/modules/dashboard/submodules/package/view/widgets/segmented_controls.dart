@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/consumer.dart';
 import 'package:flutter_meedu/rx.dart';
 import 'package:hooks_meedu/hooks_meedu.dart';
 import 'package:hooks_meedu/rx_hook.dart';

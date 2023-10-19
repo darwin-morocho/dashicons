@@ -65,6 +65,7 @@ Future<void> showPackages(BuildContext context) async {
       }
 
       if (result == 'new') {
+        // ignore: use_build_context_synchronously
         final createdPackage = await addOrUpdatePackage(context);
         if (createdPackage != null) {
           packageBloc.onPackageChanged(createdPackage);

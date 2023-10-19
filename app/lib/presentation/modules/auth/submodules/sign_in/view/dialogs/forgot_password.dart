@@ -25,6 +25,7 @@ Future<void> showForgotPasswordForm(BuildContext context) async {
     return;
   }
 
+  // ignore: use_build_context_synchronously
   final result = await Loader.show(
     context,
     SendResetPasswordEmailUseCase(

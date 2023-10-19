@@ -14,7 +14,7 @@ import '../../theme/colors.dart';
 import '../max_size.dart';
 
 class MainAppBar extends ConsumerWidget implements PreferredSizeWidget {
-  const MainAppBar({Key? key}) : super(key: key);
+  const MainAppBar({super.key});
   @override
   Widget build(BuildContext context, ref) {
     final user = ref.watch(sessionProvider).state.user;
@@ -118,13 +118,13 @@ class MainAppBar extends ConsumerWidget implements PreferredSizeWidget {
       ],
     );
 
-    // ignore: use_build_context_synchronously
     if (result == null || !context.mounted) {
       return;
     }
 
     switch (result) {
       case ProfileMenuOption.settings:
+        // ignore: use_build_context_synchronously
         AccountSettingsRoute().push(context);
         break;
       case ProfileMenuOption.signOut:

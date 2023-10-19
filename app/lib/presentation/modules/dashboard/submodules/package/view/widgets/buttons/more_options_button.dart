@@ -78,6 +78,7 @@ class MoreOptionsButton extends StatelessWidget {
         bloc.onRemoveAll();
         break;
       case MoreOptions.import:
+        // ignore: use_build_context_synchronously
         importConfigFile(context);
         break;
     }
