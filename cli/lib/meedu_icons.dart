@@ -12,7 +12,7 @@ class Commands extends CommandRunner<void> {
   Commands(super.executableName, super.description) {
     injectRepositories(
       http: Http(
-        'https://cloudicons.meedu.app',
+        'http://192.168.10.20:9002',
         Client(),
       ),
     );
@@ -25,21 +25,25 @@ class Commands extends CommandRunner<void> {
     addCommand(
       InitCommand(Repositories.auth.read(), Repositories.packages.read()),
     );
-    addCommand(
-      PullCommand(Repositories.packages.read())
-        ..argParser.addOption(
-          'file',
-          help: '''
+    addCommand(PullCommand(Repositories.packages.read())
+      ..argParser.addOption(
+        'file',
+        help: '''
 You can use the file argument to use a different config file. Useful when you have multiple packages in one single project.
 ''',
-        )
-        ..argParser.addOption(
-          'useApiKey',
-          help: '''
+      )
+      ..argParser.addOption(
+        'useApiKey',
+        help: '''
 Use useApiKey=true if you are running a CI/CD process.
 Keep in mind that you must define an environment variable called MICONS_API_KEY with your API key.
 ''',
-        ),
-    );
+      )
+      ..argParser.addOption(
+        'MICONS_API_KEY',
+        help: '''
+Your api key
+''',
+      ));
   }
 }

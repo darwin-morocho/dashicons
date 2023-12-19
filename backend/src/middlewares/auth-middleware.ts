@@ -3,7 +3,7 @@
 import { Request, Response, NextFunction } from 'express';
 import admin from 'firebase-admin';
 import { Firestore } from 'firebase-admin/firestore';
-import { AES } from 'crypto-js';
+import { AES, enc } from 'crypto-js';
 
 export default class AuthMiddleware {
   constructor(db: Firestore) {
@@ -18,12 +18,15 @@ export default class AuthMiddleware {
   ): Promise<void> => {
     try {
       const apiKey = req.headers['api-key'] as string | undefined;
+      const { authorization } = req.headers;
+
+      if (!apiKey && !authorization) {
+        throw { code: 401, message: 'unauthorized' };
+      }
 
       if (apiKey) {
         const json = JSON.parse(
-          AES.decrypt(apiKey, process.env.CRYPTO_JS_SECRET!).toString(
-            CryptoJS.enc.Utf8
-          )
+          AES.decrypt(apiKey, process.env.CRYPTO_JS_SECRET!).toString(enc.Utf8)
         );
 
         const snapshot = await this.db
@@ -35,13 +38,11 @@ export default class AuthMiddleware {
         }
 
         req.uid = json.uid;
+        next();
+        return;
       }
 
-      const { authorization } = req.headers;
-      if (!authorization) {
-        throw { code: 401, message: 'unauthorized' };
-      }
-      const token = authorization.replace('Bearer ', '');
+      const token = authorization!.replace('Bearer ', '');
       const decodedIdToken = await admin.auth().verifyIdToken(token);
       req.uid = decodedIdToken.uid;
       next();

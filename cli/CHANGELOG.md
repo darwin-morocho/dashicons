@@ -1,3 +1,6 @@
+## 0.0.9
+- Fix read MICONS_API_KEY argument.
+
 ## 0.0.8
 - Fix `Invalid argument(s): Invalid or corrupted pad block`.
 

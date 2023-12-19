@@ -33,6 +33,9 @@ micons pull --file=your_config_file.json
 // Keep in mind that you must define an environment variable called MICONS_API_KEY with your API key.
 micons pull --useApiKey=true
 
+// Or 
+micons pull --useApiKey=true --MICONS_API_KEY=YOUR_API_KEY
+
 // Remove the current session data
 micons logout
 ```
