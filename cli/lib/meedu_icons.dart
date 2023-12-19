@@ -12,7 +12,7 @@ class Commands extends CommandRunner<void> {
   Commands(super.executableName, super.description) {
     injectRepositories(
       http: Http(
-        'http://192.168.10.20:9002',
+        'https://cloudicons.meedu.app',
         Client(),
       ),
     );

@@ -72,7 +72,6 @@ class Http {
       final responseBody = autoDecodeReponse
           ? _parseResponseBody(response.body)
           : response.bodyBytes;
-      print(responseBody);
 
       if (statusCode >= 200 && statusCode <= 399) {
         return HttpResult.success(
