@@ -81,8 +81,18 @@ class PullCommand extends Command<void> {
         throw Exception('❌ Your request could not be processed');
       }
 
-      File(config['ttfFile']).writeAsBytesSync(bytes);
-      File(config['dartFile']).writeAsStringSync(getDarCode(package));
+      final ttfFile = File(config['ttfFile']);
+      final dartFile = File(config['dartFile']);
+
+      if (!ttfFile.existsSync()) {
+        await ttfFile.create(recursive: true);
+      }
+      if (!dartFile.existsSync()) {
+        await dartFile.create(recursive: true);
+      }
+
+      ttfFile.writeAsBytesSync(bytes);
+      dartFile.writeAsStringSync(getDarCode(package));
 
       print('✅ pull sucessful');
       exit(0);

@@ -51,25 +51,22 @@ Example:
 
 ```JSON
 {
-  "webApiKey": "YOUR_WEB_API_KEY",
-  "iosApiKey": "YOUR_IOS_API_KEY",
-  "appId": "YOUR_APP_ID",
-  "projectId": "YOUR_PROJECT_ID",
-  "authDomain": "YOUR_AUTH_DOMAIN",
-  "storageBucket": "YOUR_STORAGE_BUCKET",
-  "iosClientId": "YOUR_IOS_CLIENT_ID",
-  "iosBundleId": "app.meedu.icons",
   "apiHost": "https://YOUR_API_HOST"
 }
 ```
+
+And you need to link with your firebase project using `flutterfire`
+Go to the `./app` folder and run
+```shell
+flutterfire config --out=lib/firebase_options.dart --macos-bundle-id=app.meedu.icons
+```
+
 
 Run your app on Web using
 
 ```shell
 flutter run -d chrome --web-renderer html --release --dart-define-from-file=env.json
 ```
-
-For macOS you need to add your `GoogleService-Info.plist` into the `macos/runner folder`
 
 
 ## CLI APP (dart command line application)

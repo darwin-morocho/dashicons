@@ -1,6 +1,6 @@
 name: micons_cli
 description: The oficial CLI for icons.meedu.app
-version: 0.0.9
+version: 0.0.10
 homepage: https://icons.meedu.app
 
 environment:

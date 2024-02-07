@@ -1,3 +1,6 @@
+## 0.0.10
+- Create missign ttf and dart files.
+
 ## 0.0.9
 - Fix read MICONS_API_KEY argument.
 
