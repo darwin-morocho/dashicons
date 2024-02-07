@@ -53,3 +53,4 @@ assets/MeeduIcons.ttf
 lib/presentation/global/icons.dart
 env.json
 macos/Runner/GoogleService-Info.plist
+lib/firebase_options.dart
