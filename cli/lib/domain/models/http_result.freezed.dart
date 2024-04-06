@@ -12,7 +12,7 @@ part of 'http_result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HttpResult<T> {
@@ -96,22 +96,22 @@ class _$HttpResultCopyWithImpl<T, $Res, $Val extends HttpResult<T>>
 }
 
 /// @nodoc
-abstract class _$$_HttpSuccessCopyWith<T, $Res>
+abstract class _$$HttpSuccessImplCopyWith<T, $Res>
     implements $HttpResultCopyWith<T, $Res> {
-  factory _$$_HttpSuccessCopyWith(
-          _$_HttpSuccess<T> value, $Res Function(_$_HttpSuccess<T>) then) =
-      __$$_HttpSuccessCopyWithImpl<T, $Res>;
+  factory _$$HttpSuccessImplCopyWith(_$HttpSuccessImpl<T> value,
+          $Res Function(_$HttpSuccessImpl<T>) then) =
+      __$$HttpSuccessImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({int statusCode, T data});
 }
 
 /// @nodoc
-class __$$_HttpSuccessCopyWithImpl<T, $Res>
-    extends _$HttpResultCopyWithImpl<T, $Res, _$_HttpSuccess<T>>
-    implements _$$_HttpSuccessCopyWith<T, $Res> {
-  __$$_HttpSuccessCopyWithImpl(
-      _$_HttpSuccess<T> _value, $Res Function(_$_HttpSuccess<T>) _then)
+class __$$HttpSuccessImplCopyWithImpl<T, $Res>
+    extends _$HttpResultCopyWithImpl<T, $Res, _$HttpSuccessImpl<T>>
+    implements _$$HttpSuccessImplCopyWith<T, $Res> {
+  __$$HttpSuccessImplCopyWithImpl(
+      _$HttpSuccessImpl<T> _value, $Res Function(_$HttpSuccessImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_HttpSuccessCopyWithImpl<T, $Res>
     Object? statusCode = null,
     Object? data = freezed,
   }) {
-    return _then(_$_HttpSuccess<T>(
+    return _then(_$HttpSuccessImpl<T>(
       null == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -135,8 +135,8 @@ class __$$_HttpSuccessCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_HttpSuccess<T> implements _HttpSuccess<T> {
-  _$_HttpSuccess(this.statusCode, this.data);
+class _$HttpSuccessImpl<T> implements _HttpSuccess<T> {
+  _$HttpSuccessImpl(this.statusCode, this.data);
 
   @override
   final int statusCode;
@@ -149,10 +149,10 @@ class _$_HttpSuccess<T> implements _HttpSuccess<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HttpSuccess<T> &&
+            other is _$HttpSuccessImpl<T> &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
@@ -165,8 +165,9 @@ class _$_HttpSuccess<T> implements _HttpSuccess<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HttpSuccessCopyWith<T, _$_HttpSuccess<T>> get copyWith =>
-      __$$_HttpSuccessCopyWithImpl<T, _$_HttpSuccess<T>>(this, _$identity);
+  _$$HttpSuccessImplCopyWith<T, _$HttpSuccessImpl<T>> get copyWith =>
+      __$$HttpSuccessImplCopyWithImpl<T, _$HttpSuccessImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -232,7 +233,8 @@ class _$_HttpSuccess<T> implements _HttpSuccess<T> {
 }
 
 abstract class _HttpSuccess<T> implements HttpResult<T> {
-  factory _HttpSuccess(final int statusCode, final T data) = _$_HttpSuccess<T>;
+  factory _HttpSuccess(final int statusCode, final T data) =
+      _$HttpSuccessImpl<T>;
 
   @override
   int get statusCode;
@@ -240,27 +242,27 @@ abstract class _HttpSuccess<T> implements HttpResult<T> {
   T get data;
   @override
   @JsonKey(ignore: true)
-  _$$_HttpSuccessCopyWith<T, _$_HttpSuccess<T>> get copyWith =>
+  _$$HttpSuccessImplCopyWith<T, _$HttpSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_HttpFailedCopyWith<T, $Res>
+abstract class _$$HttpFailedImplCopyWith<T, $Res>
     implements $HttpResultCopyWith<T, $Res> {
-  factory _$$_HttpFailedCopyWith(
-          _$_HttpFailed<T> value, $Res Function(_$_HttpFailed<T>) then) =
-      __$$_HttpFailedCopyWithImpl<T, $Res>;
+  factory _$$HttpFailedImplCopyWith(
+          _$HttpFailedImpl<T> value, $Res Function(_$HttpFailedImpl<T>) then) =
+      __$$HttpFailedImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({int? statusCode, Object? data});
 }
 
 /// @nodoc
-class __$$_HttpFailedCopyWithImpl<T, $Res>
-    extends _$HttpResultCopyWithImpl<T, $Res, _$_HttpFailed<T>>
-    implements _$$_HttpFailedCopyWith<T, $Res> {
-  __$$_HttpFailedCopyWithImpl(
-      _$_HttpFailed<T> _value, $Res Function(_$_HttpFailed<T>) _then)
+class __$$HttpFailedImplCopyWithImpl<T, $Res>
+    extends _$HttpResultCopyWithImpl<T, $Res, _$HttpFailedImpl<T>>
+    implements _$$HttpFailedImplCopyWith<T, $Res> {
+  __$$HttpFailedImplCopyWithImpl(
+      _$HttpFailedImpl<T> _value, $Res Function(_$HttpFailedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +271,7 @@ class __$$_HttpFailedCopyWithImpl<T, $Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_$_HttpFailed<T>(
+    return _then(_$HttpFailedImpl<T>(
       freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -281,8 +283,8 @@ class __$$_HttpFailedCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_HttpFailed<T> implements _HttpFailed<T> {
-  _$_HttpFailed(this.statusCode, this.data);
+class _$HttpFailedImpl<T> implements _HttpFailed<T> {
+  _$HttpFailedImpl(this.statusCode, this.data);
 
   @override
   final int? statusCode;
@@ -295,10 +297,10 @@ class _$_HttpFailed<T> implements _HttpFailed<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HttpFailed<T> &&
+            other is _$HttpFailedImpl<T> &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
@@ -311,8 +313,8 @@ class _$_HttpFailed<T> implements _HttpFailed<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HttpFailedCopyWith<T, _$_HttpFailed<T>> get copyWith =>
-      __$$_HttpFailedCopyWithImpl<T, _$_HttpFailed<T>>(this, _$identity);
+  _$$HttpFailedImplCopyWith<T, _$HttpFailedImpl<T>> get copyWith =>
+      __$$HttpFailedImplCopyWithImpl<T, _$HttpFailedImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -379,7 +381,7 @@ class _$_HttpFailed<T> implements _HttpFailed<T> {
 
 abstract class _HttpFailed<T> implements HttpResult<T> {
   factory _HttpFailed(final int? statusCode, final Object? data) =
-      _$_HttpFailed<T>;
+      _$HttpFailedImpl<T>;
 
   @override
   int? get statusCode;
@@ -387,6 +389,6 @@ abstract class _HttpFailed<T> implements HttpResult<T> {
   Object? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_HttpFailedCopyWith<T, _$_HttpFailed<T>> get copyWith =>
+  _$$HttpFailedImplCopyWith<T, _$HttpFailedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

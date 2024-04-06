@@ -12,7 +12,7 @@ part of 'session.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Session _$SessionFromJson(Map<String, dynamic> json) {
   return _Session.fromJson(json);
@@ -79,10 +79,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
 }
 
 /// @nodoc
-abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
-  factory _$$_SessionCopyWith(
-          _$_Session value, $Res Function(_$_Session) then) =
-      __$$_SessionCopyWithImpl<$Res>;
+abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
+  factory _$$SessionImplCopyWith(
+          _$SessionImpl value, $Res Function(_$SessionImpl) then) =
+      __$$SessionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -90,10 +90,11 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SessionCopyWithImpl<$Res>
-    extends _$SessionCopyWithImpl<$Res, _$_Session>
-    implements _$$_SessionCopyWith<$Res> {
-  __$$_SessionCopyWithImpl(_$_Session _value, $Res Function(_$_Session) _then)
+class __$$SessionImplCopyWithImpl<$Res>
+    extends _$SessionCopyWithImpl<$Res, _$SessionImpl>
+    implements _$$SessionImplCopyWith<$Res> {
+  __$$SessionImplCopyWithImpl(
+      _$SessionImpl _value, $Res Function(_$SessionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +105,7 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? refreshToken = null,
     Object? expiresIn = null,
   }) {
-    return _then(_$_Session(
+    return _then(_$SessionImpl(
       idToken: null == idToken
           ? _value.idToken
           : idToken // ignore: cast_nullable_to_non_nullable
@@ -127,15 +128,15 @@ class __$$_SessionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Session implements _Session {
-  _$_Session(
+class _$SessionImpl implements _Session {
+  _$SessionImpl(
       {required this.idToken,
       required this.apiKey,
       required this.refreshToken,
       required this.expiresIn});
 
-  factory _$_Session.fromJson(Map<String, dynamic> json) =>
-      _$$_SessionFromJson(json);
+  factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SessionImplFromJson(json);
 
   @override
   final String idToken;
@@ -152,10 +153,10 @@ class _$_Session implements _Session {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Session &&
+            other is _$SessionImpl &&
             (identical(other.idToken, idToken) || other.idToken == idToken) &&
             (identical(other.apiKey, apiKey) || other.apiKey == apiKey) &&
             (identical(other.refreshToken, refreshToken) ||
@@ -172,12 +173,12 @@ class _$_Session implements _Session {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SessionCopyWith<_$_Session> get copyWith =>
-      __$$_SessionCopyWithImpl<_$_Session>(this, _$identity);
+  _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
+      __$$SessionImplCopyWithImpl<_$SessionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SessionToJson(
+    return _$$SessionImplToJson(
       this,
     );
   }
@@ -188,9 +189,9 @@ abstract class _Session implements Session {
       {required final String idToken,
       required final String apiKey,
       required final String refreshToken,
-      required final String expiresIn}) = _$_Session;
+      required final String expiresIn}) = _$SessionImpl;
 
-  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
+  factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 
   @override
   String get idToken;
@@ -202,6 +203,6 @@ abstract class _Session implements Session {
   String get expiresIn;
   @override
   @JsonKey(ignore: true)
-  _$$_SessionCopyWith<_$_Session> get copyWith =>
+  _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

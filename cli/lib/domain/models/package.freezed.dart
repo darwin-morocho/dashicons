@@ -12,7 +12,7 @@ part of 'package.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Package _$PackageFromJson(Map<String, dynamic> json) {
   return _Package.fromJson(json);
@@ -97,10 +97,10 @@ class _$PackageCopyWithImpl<$Res, $Val extends Package>
 }
 
 /// @nodoc
-abstract class _$$_PackageCopyWith<$Res> implements $PackageCopyWith<$Res> {
-  factory _$$_PackageCopyWith(
-          _$_Package value, $Res Function(_$_Package) then) =
-      __$$_PackageCopyWithImpl<$Res>;
+abstract class _$$PackageImplCopyWith<$Res> implements $PackageCopyWith<$Res> {
+  factory _$$PackageImplCopyWith(
+          _$PackageImpl value, $Res Function(_$PackageImpl) then) =
+      __$$PackageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -113,10 +113,11 @@ abstract class _$$_PackageCopyWith<$Res> implements $PackageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_PackageCopyWithImpl<$Res>
-    extends _$PackageCopyWithImpl<$Res, _$_Package>
-    implements _$$_PackageCopyWith<$Res> {
-  __$$_PackageCopyWithImpl(_$_Package _value, $Res Function(_$_Package) _then)
+class __$$PackageImplCopyWithImpl<$Res>
+    extends _$PackageCopyWithImpl<$Res, _$PackageImpl>
+    implements _$$PackageImplCopyWith<$Res> {
+  __$$PackageImplCopyWithImpl(
+      _$PackageImpl _value, $Res Function(_$PackageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +130,7 @@ class __$$_PackageCopyWithImpl<$Res>
     Object? lastId = null,
     Object? icons = null,
   }) {
-    return _then(_$_Package(
+    return _then(_$PackageImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -160,8 +161,8 @@ class __$$_PackageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Package implements _Package {
-  _$_Package(
+class _$PackageImpl implements _Package {
+  _$PackageImpl(
       {required this.id,
       required this.name,
       required this.fontFamily,
@@ -170,8 +171,8 @@ class _$_Package implements _Package {
       @JsonKey(toJson: _iconsToJsonList) required final List<SvgIcon> icons})
       : _icons = icons;
 
-  factory _$_Package.fromJson(Map<String, dynamic> json) =>
-      _$$_PackageFromJson(json);
+  factory _$PackageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PackageImplFromJson(json);
 
   @override
   final String id;
@@ -198,10 +199,10 @@ class _$_Package implements _Package {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Package &&
+            other is _$PackageImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fontFamily, fontFamily) ||
@@ -220,12 +221,12 @@ class _$_Package implements _Package {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PackageCopyWith<_$_Package> get copyWith =>
-      __$$_PackageCopyWithImpl<_$_Package>(this, _$identity);
+  _$$PackageImplCopyWith<_$PackageImpl> get copyWith =>
+      __$$PackageImplCopyWithImpl<_$PackageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PackageToJson(
+    return _$$PackageImplToJson(
       this,
     );
   }
@@ -239,9 +240,9 @@ abstract class _Package implements Package {
       required final String? fontPackage,
       required final int lastId,
       @JsonKey(toJson: _iconsToJsonList)
-      required final List<SvgIcon> icons}) = _$_Package;
+      required final List<SvgIcon> icons}) = _$PackageImpl;
 
-  factory _Package.fromJson(Map<String, dynamic> json) = _$_Package.fromJson;
+  factory _Package.fromJson(Map<String, dynamic> json) = _$PackageImpl.fromJson;
 
   @override
   String get id;
@@ -258,6 +259,6 @@ abstract class _Package implements Package {
   List<SvgIcon> get icons;
   @override
   @JsonKey(ignore: true)
-  _$$_PackageCopyWith<_$_Package> get copyWith =>
+  _$$PackageImplCopyWith<_$PackageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

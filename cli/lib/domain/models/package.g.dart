@@ -8,7 +8,8 @@ part of 'package.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Package _$$_PackageFromJson(Map<String, dynamic> json) => _$_Package(
+_$PackageImpl _$$PackageImplFromJson(Map<String, dynamic> json) =>
+    _$PackageImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       fontFamily: json['fontFamily'] as String,
@@ -19,7 +20,7 @@ _$_Package _$$_PackageFromJson(Map<String, dynamic> json) => _$_Package(
           .toList(),
     );
 
-Map<String, dynamic> _$$_PackageToJson(_$_Package instance) =>
+Map<String, dynamic> _$$PackageImplToJson(_$PackageImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

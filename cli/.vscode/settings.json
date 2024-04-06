@@ -1,7 +1,7 @@
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": true
+        "source.fixAll": "always",
+        "source.organizeImports": "always"
     },
     "command-runner.commands": {
         "build_runner":"dart run build_runner build",

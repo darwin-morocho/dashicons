@@ -12,7 +12,7 @@ part of 'svg_icon.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SvgIcon _$SvgIconFromJson(Map<String, dynamic> json) {
   return _SvgIcon.fromJson(json);
@@ -78,20 +78,21 @@ class _$SvgIconCopyWithImpl<$Res, $Val extends SvgIcon>
 }
 
 /// @nodoc
-abstract class _$$_SvgIconCopyWith<$Res> implements $SvgIconCopyWith<$Res> {
-  factory _$$_SvgIconCopyWith(
-          _$_SvgIcon value, $Res Function(_$_SvgIcon) then) =
-      __$$_SvgIconCopyWithImpl<$Res>;
+abstract class _$$SvgIconImplCopyWith<$Res> implements $SvgIconCopyWith<$Res> {
+  factory _$$SvgIconImplCopyWith(
+          _$SvgIconImpl value, $Res Function(_$SvgIconImpl) then) =
+      __$$SvgIconImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String name, String path, bool selected});
 }
 
 /// @nodoc
-class __$$_SvgIconCopyWithImpl<$Res>
-    extends _$SvgIconCopyWithImpl<$Res, _$_SvgIcon>
-    implements _$$_SvgIconCopyWith<$Res> {
-  __$$_SvgIconCopyWithImpl(_$_SvgIcon _value, $Res Function(_$_SvgIcon) _then)
+class __$$SvgIconImplCopyWithImpl<$Res>
+    extends _$SvgIconCopyWithImpl<$Res, _$SvgIconImpl>
+    implements _$$SvgIconImplCopyWith<$Res> {
+  __$$SvgIconImplCopyWithImpl(
+      _$SvgIconImpl _value, $Res Function(_$SvgIconImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +103,7 @@ class __$$_SvgIconCopyWithImpl<$Res>
     Object? path = null,
     Object? selected = null,
   }) {
-    return _then(_$_SvgIcon(
+    return _then(_$SvgIconImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -125,16 +126,16 @@ class __$$_SvgIconCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SvgIcon extends _SvgIcon {
-  const _$_SvgIcon(
+class _$SvgIconImpl extends _SvgIcon {
+  const _$SvgIconImpl(
       {required this.id,
       required this.name,
       required this.path,
       this.selected = false})
       : super._();
 
-  factory _$_SvgIcon.fromJson(Map<String, dynamic> json) =>
-      _$$_SvgIconFromJson(json);
+  factory _$SvgIconImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SvgIconImplFromJson(json);
 
   @override
   final int id;
@@ -152,10 +153,10 @@ class _$_SvgIcon extends _SvgIcon {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SvgIcon &&
+            other is _$SvgIconImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.path, path) || other.path == path) &&
@@ -170,12 +171,12 @@ class _$_SvgIcon extends _SvgIcon {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SvgIconCopyWith<_$_SvgIcon> get copyWith =>
-      __$$_SvgIconCopyWithImpl<_$_SvgIcon>(this, _$identity);
+  _$$SvgIconImplCopyWith<_$SvgIconImpl> get copyWith =>
+      __$$SvgIconImplCopyWithImpl<_$SvgIconImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SvgIconToJson(
+    return _$$SvgIconImplToJson(
       this,
     );
   }
@@ -186,10 +187,10 @@ abstract class _SvgIcon extends SvgIcon {
       {required final int id,
       required final String name,
       required final String path,
-      final bool selected}) = _$_SvgIcon;
+      final bool selected}) = _$SvgIconImpl;
   const _SvgIcon._() : super._();
 
-  factory _SvgIcon.fromJson(Map<String, dynamic> json) = _$_SvgIcon.fromJson;
+  factory _SvgIcon.fromJson(Map<String, dynamic> json) = _$SvgIconImpl.fromJson;
 
   @override
   int get id;
@@ -201,6 +202,6 @@ abstract class _SvgIcon extends SvgIcon {
   bool get selected;
   @override
   @JsonKey(ignore: true)
-  _$$_SvgIconCopyWith<_$_SvgIcon> get copyWith =>
+  _$$SvgIconImplCopyWith<_$SvgIconImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

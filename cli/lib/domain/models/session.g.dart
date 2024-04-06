@@ -8,14 +8,15 @@ part of 'session.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Session _$$_SessionFromJson(Map<String, dynamic> json) => _$_Session(
+_$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
+    _$SessionImpl(
       idToken: json['idToken'] as String,
       apiKey: json['apiKey'] as String,
       refreshToken: json['refreshToken'] as String,
       expiresIn: json['expiresIn'] as String,
     );
 
-Map<String, dynamic> _$$_SessionToJson(_$_Session instance) =>
+Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
     <String, dynamic>{
       'idToken': instance.idToken,
       'apiKey': instance.apiKey,

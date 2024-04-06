@@ -1,3 +1,6 @@
+## 0.0.11
+- Fixed Synchronous waiting using dart:cli waitFor and C API Dart_WaitForEvent is deprecated and disabled by default.
+
 ## 0.0.10
 - Create missign ttf and dart files.
 
