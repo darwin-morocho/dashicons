@@ -1,3 +1,6 @@
+## 0.0.13
+- Updated generated code template.
+
 ## 0.0.12
 - Updated dependencies.
 

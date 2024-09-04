@@ -33,8 +33,6 @@ String getDarCode(Package package) {
 /// or 
 /// $fontFamily.our_icon.icon();
 
-
-import 'dart:ui';
 import 'package:flutter/widgets.dart';
 
 class $fontFamily {
