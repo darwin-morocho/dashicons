@@ -1,6 +1,6 @@
 name: micons_cli
 description: The oficial CLI for icons.meedu.app
-version: 0.0.11
+version: 0.0.13
 homepage: https://icons.meedu.app
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   archive: ^3.4.10
   args: ^2.4.2
-  dcli: ^4.0.1-beta.1
+  dcli: ^6.0.5
   freezed_annotation: ^2.4.1
   http: ^1.2.1
   json_annotation: ^4.8.1
@@ -23,7 +23,7 @@ dev_dependencies:
   build_runner: ^2.3.3
   freezed: ^2.5.0
   json_serializable: ^6.7.1
-  lints: ^3.0.0
+  lints: ^4.0.0
   test: ^1.21.0
 
 

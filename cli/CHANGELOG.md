@@ -1,3 +1,9 @@
+## 0.0.13
+- Updated generated code template.
+
+## 0.0.12
+- Updated dependencies.
+
 ## 0.0.11
 - Fixed Synchronous waiting using dart:cli waitFor and C API Dart_WaitForEvent is deprecated and disabled by default.
 
