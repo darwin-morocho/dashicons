@@ -12,21 +12,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isAuthenticated = void 0;
 const firebase_admin_1 = __importDefault(require("firebase-admin"));
-const isAuthenticated = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b;
-    try {
-        const { authorization } = req.headers;
-        if (!authorization) {
-            throw { code: 401, message: "unauthorized" };
-        }
-        const token = authorization.replace("Bearer ", "");
-        yield firebase_admin_1.default.auth().verifyIdToken(token);
-        next();
+const crypto_js_1 = require("crypto-js");
+class AuthMiddleware {
+    constructor(db) {
+        this.isAuthenticated = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
+            try {
+                const apiKey = req.headers['api-key'];
+                const { authorization } = req.headers;
+                if (!apiKey && !authorization) {
+                    throw { code: 401, message: 'unauthorized' };
+                }
+                if (apiKey) {
+                    const json = JSON.parse(crypto_js_1.AES.decrypt(apiKey, process.env.CRYPTO_JS_SECRET).toString(crypto_js_1.enc.Utf8));
+                    const snapshot = yield this.db
+                        .collection('apiKeys')
+                        .where('key', '==', apiKey)
+                        .get();
+                    if (snapshot.empty) {
+                        throw { code: 401, message: 'Invalid API key' };
+                    }
+                    req.uid = json.uid;
+                    next();
+                    return;
+                }
+                const token = authorization.replace('Bearer ', '');
+                const decodedIdToken = yield firebase_admin_1.default.auth().verifyIdToken(token);
+                req.uid = decodedIdToken.uid;
+                next();
+            }
+            catch (e) {
+                res.status((_a = e.code) !== null && _a !== void 0 ? _a : 500).send({ message: (_b = e.message) !== null && _b !== void 0 ? _b : 'unknown error' });
+            }
+        });
+        this.db = db;
     }
-    catch (e) {
-        res.status((_a = e.code) !== null && _a !== void 0 ? _a : 500).send({ message: (_b = e.message) !== null && _b !== void 0 ? _b : "unknown error" });
-    }
-});
-exports.isAuthenticated = isAuthenticated;
+}
+exports.default = AuthMiddleware;

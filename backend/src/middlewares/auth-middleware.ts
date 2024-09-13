@@ -33,7 +33,8 @@ export default class AuthMiddleware {
           .collection('apiKeys')
           .where('key', '==', apiKey)
           .get();
-        if (snapshot.empty) {
+        
+        if (snapshot.docs.length == 0) {
           throw { code: 401, message: 'Invalid API key' };
         }
 

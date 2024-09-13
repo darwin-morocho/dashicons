@@ -90,4 +90,4 @@ app.get(
   authController.generateApiKey
 );
 
-app.listen(process.env.PORT, () => console.log('Running ✅'));
+app.listen(process.env.PORT ?? 9000, () => console.log('Running ✅'));
