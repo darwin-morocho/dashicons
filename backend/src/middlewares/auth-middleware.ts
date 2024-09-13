@@ -48,6 +48,7 @@ export default class AuthMiddleware {
       req.uid = decodedIdToken.uid;
       next();
     } catch (e: any) {
+      console.log(e)
       res.status(e.code ?? 500).send({ message: e.message ?? 'unknown error' });
     }
   };
